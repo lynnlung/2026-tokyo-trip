@@ -1,5 +1,5 @@
 // Paste the deployed Apps Script web app URL here to enable Google Sheets submissions.
-const APPS_SCRIPT_URL = "";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyx_AmfQd_ABYB4I5R5FXse38vTgUVz-Fz-P8YFAhy1ZP6osTBctGmB3bPKb6-XOJN_zQ/exec";
 
 const form = document.querySelector("#registration-form");
 const statusMessage = document.querySelector("#form-status");
