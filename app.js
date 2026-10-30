@@ -1,15 +1,10 @@
-// Paste the deployed Apps Script web app URL here to enable Google Sheets submissions.
+// Public Apps Script web app used for Google Sheets registration submissions.
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyx_AmfQd_ABYB4I5R5FXse38vTgUVz-Fz-P8YFAhy1ZP6osTBctGmB3bPKb6-XOJN_zQ/exec";
 
 const form = document.querySelector("#registration-form");
 const statusMessage = document.querySelector("#form-status");
 const submitButton = form.querySelector('button[type="submit"]');
 const requiredFields = ["name", "phone", "line"];
-const responseFrame = document.createElement("iframe");
-responseFrame.name = "registration-response";
-responseFrame.title = "報名送出回應";
-responseFrame.hidden = true;
-document.body.append(responseFrame);
 
 function setStatus(message, state) {
   statusMessage.textContent = message;
@@ -18,6 +13,35 @@ function setStatus(message, state) {
   } else {
     delete statusMessage.dataset.state;
   }
+}
+
+function getRegistrationResult(requestId) {
+  return new Promise((resolve, reject) => {
+    const callbackName = "__receiveRegistrationStatus";
+    const script = document.createElement("script");
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("Timed out waiting for Apps Script"));
+    }, 15000);
+
+    function cleanup() {
+      window.clearTimeout(timeout);
+      delete window[callbackName];
+      script.remove();
+    }
+
+    window[callbackName] = (result) => {
+      cleanup();
+      resolve(result);
+    };
+    script.async = true;
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("Unable to read Apps Script submission status"));
+    };
+    script.src = `${APPS_SCRIPT_URL}?requestId=${encodeURIComponent(requestId)}`;
+    document.head.append(script);
+  });
 }
 
 form.addEventListener("submit", (event) => {
@@ -50,36 +74,16 @@ form.addEventListener("submit", (event) => {
   submitButton.disabled = true;
   setStatus("報名資料送出中，請稍候…", "");
   const requestId = crypto.randomUUID();
-  const submission = new Promise((resolve, reject) => {
-    const timeout = window.setTimeout(() => {
-      window.removeEventListener("message", handleResponse);
-      reject(new Error("Timed out waiting for Apps Script"));
-    }, 30000);
+  const payload = new URLSearchParams(new FormData(form));
+  payload.set("email", email.value.trim());
+  payload.set("requestId", requestId);
 
-    function handleResponse(message) {
-      const trustedOrigin = message.origin === "https://script.google.com"
-        || message.origin.endsWith(".googleusercontent.com");
-      if (!trustedOrigin || message.data?.requestId !== requestId) return;
-      window.clearTimeout(timeout);
-      window.removeEventListener("message", handleResponse);
-      resolve(message.data);
-    }
-
-    window.addEventListener("message", handleResponse);
-  });
-
-  form.method = "POST";
-  form.action = APPS_SCRIPT_URL;
-  form.target = responseFrame.name;
-  const requestField = document.createElement("input");
-  requestField.type = "hidden";
-  requestField.name = "requestId";
-  requestField.value = requestId;
-  form.append(requestField);
-  form.submit();
-  requestField.remove();
-
-  submission
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: payload,
+  })
+    .then(() => getRegistrationResult(requestId))
     .then((result) => {
       if (!result.success) throw new Error(result.error || "Registration was not saved");
       form.reset();
