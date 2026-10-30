@@ -20,10 +20,6 @@ node preview-server.js
 
 > 若 Apps Script 網址尚未設定，表單不會假裝報名成功。
 
-## 維護文件
-
-架構、規格與驗收測試、部署及故障排除說明請見 [`docs/`](docs/README.md)。
-
 ## GitHub Pages
 
 網站已發布於 [GitHub Pages](https://lynnlung.github.io/2026-tokyo-trip/)。GitHub 儲存庫：[2026-tokyo-trip](https://github.com/lynnlung/2026-tokyo-trip)。`SPEC/` 規格資料夾不會推送至儲存庫。
