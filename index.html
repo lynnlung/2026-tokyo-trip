@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff8ed">
+    <meta name="description" content="一起出發，探索東京的春日風景！立即報名 2026 東京員工旅遊。">
+    <title>2026 東京旅遊｜春日一起出發</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="春日出發，回到首頁">
+        <span class="brand-mark" aria-hidden="true">✿</span>
+        <span>春日出發<span class="brand-period">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="主要導覽">
+        <a href="#journey">行程亮點</a>
+        <a href="#signup">報名資訊</a>
+      </nav>
+      <a class="nav-cta" href="#signup">我要報名 <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> COMPANY TRIP · SPRING 2026</p>
+          <h1 id="page-title">東京，<br><span>一起去旅行。</span></h1>
+          <p class="hero-description">把日常暫停一下，和同事一起漫步東京。從淺草的古意、河口湖的晴空，到城市裡閃閃發亮的每個角落。</p>
+          <a class="primary-link" href="#signup">預留我的旅程 <span aria-hidden="true">↓</span></a>
+          <div class="hero-note"><span class="sparkle" aria-hidden="true">✳</span> 四天三夜，把春天的回憶帶回來</div>
+        </div>
+        <div class="hero-art">
+          <div class="art-sun" aria-hidden="true"></div>
+          <div class="art-caption"><span>東京日和</span><span>SPRING ’26</span></div>
+          <img class="hero-image" src="東京旅遊春日拼貼海報.png" alt="東京旅遊春日拼貼海報，包含淺草寺、富士山、東京鐵塔與春日櫻花">
+          <span class="art-sticker" aria-hidden="true">さくら<br><span>✿</span></span>
+        </div>
+        <a class="scroll-cue" href="#journey"><span></span> SCROLL TO EXPLORE</a>
+      </section>
+
+      <section class="lower-grid" id="journey">
+        <div class="journey-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">THE ITINERARY</p>
+              <h2>四天，慢慢遇見東京</h2>
+            </div>
+            <span class="heading-flower" aria-hidden="true">✿</span>
+          </div>
+          <ol class="itinerary">
+            <li class="itinerary-day">
+              <span class="day-number">01</span>
+              <span class="day-icon" aria-hidden="true">⛩</span>
+              <div><p>DAY ONE · ASAKUSA</p><h3>淺草寺</h3></div>
+              <span class="day-arrow" aria-hidden="true">↗</span>
+            </li>
+            <li class="itinerary-day">
+              <span class="day-number">02</span>
+              <span class="day-icon" aria-hidden="true">富</span>
+              <div><p>DAY TWO · KAWAGUCHIKO</p><h3>河口湖</h3></div>
+              <span class="day-arrow" aria-hidden="true">↗</span>
+            </li>
+            <li class="itinerary-day">
+              <span class="day-number">03</span>
+              <span class="day-icon" aria-hidden="true">✦</span>
+              <div><p>DAY THREE · SKYTREE</p><h3>晴空塔</h3></div>
+              <span class="day-arrow" aria-hidden="true">↗</span>
+            </li>
+            <li class="itinerary-day">
+              <span class="day-number">04</span>
+              <span class="day-icon" aria-hidden="true">✈</span>
+              <div><p>DAY FOUR · SEE YOU</p><h3>帶著回憶回家</h3></div>
+              <span class="day-arrow" aria-hidden="true">↗</span>
+            </li>
+          </ol>
+          <p class="journey-footnote"><span aria-hidden="true">✳</span> 好風景，想和你一起看。</p>
+        </div>
+
+        <section class="signup-panel" id="signup" aria-labelledby="signup-title">
+          <div class="signup-topline"><span>YOUR NEXT ADVENTURE</span><span aria-hidden="true">✿</span></div>
+          <p class="eyebrow">COME ALONG!</p>
+          <h2 id="signup-title">一起出發吧<span>。</span></h2>
+          <p class="signup-intro">留下聯絡方式，幫自己保留一個春天的位置。</p>
+          <form id="registration-form" novalidate>
+            <label for="name">姓名 <span class="required">必填</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="怎麼稱呼你？" required>
+
+            <label for="email">Email <span class="optional">選填</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+
+            <label for="phone">手機 <span class="required">必填</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="例如：0912 345 678" required>
+
+            <label for="line">LINE <span class="required">必填</span></label>
+            <input id="line" name="line" type="text" autocomplete="off" placeholder="你的 LINE ID" required>
+
+            <p class="privacy-note"><span aria-hidden="true">♡</span> 聯絡資料僅用於本次旅遊報名與通知。</p>
+            <button class="submit-button" type="submit"><span>送出報名</span><span aria-hidden="true">↗</span></button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">✿</span><span>春日出發<span class="brand-period">.</span></span></a>
+      <p>2026 東京旅遊 <span aria-hidden="true">·</span> 一起收藏春天</p>
+      <a href="#home">BACK TO TOP ↑</a>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
