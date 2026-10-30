@@ -24,4 +24,4 @@ node preview-server.js
 
 ## GitHub Pages
 
-發布網站前，請將靜態網站檔案推送至 GitHub，並在儲存庫設定中啟用 GitHub Pages。`SPEC/` 規格資料夾不應加入發布儲存庫。網站發布後，請將 Pages 網址補充於本 README。
+網站已發布於 [GitHub Pages](https://lynnlung.github.io/2026-tokyo-trip/)。GitHub 儲存庫：[2026-tokyo-trip](https://github.com/lynnlung/2026-tokyo-trip)。`SPEC/` 規格資料夾不會推送至儲存庫。
